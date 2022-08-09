@@ -3,7 +3,6 @@ node_js:
   - 16
 services:
   - docker
-
 # pre-testing installs
 install:
   - echo "nothing needs to be installed"
@@ -14,10 +13,9 @@ before_scripts:
 
 script: 
   - docker --version
-  - docker build -t simple-node .
-  - docker tag sample-node kibrom/sample_node_uda_00
+  - docker build -t sample-node .
+  - docker tag sample-node kibrom/sample_node_uda_00:latest
 
 after_sucess:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push kibrom/sample_node_uda_00
-
