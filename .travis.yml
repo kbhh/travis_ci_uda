@@ -15,9 +15,9 @@ before_scripts:
 script: 
   - docker --version
   - docker build -t simple-node .
-  - docker tag simple-node kibrom/sample_node_uda_00:latest
+  - docker tag sample-node kibrom/sample_node_uda_00
 
 after_sucess:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push kibrom/simple-node
+  - docker push kibrom/sample_node_uda_00
 
